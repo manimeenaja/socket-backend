@@ -1,0 +1,51 @@
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Age</th>
+    <th>Sex</th>
+  </tr>
+  <div *ngFor="let record of data;let i = index;" >
+    <tr (click)="toggleRowOne($event,i)">
+    <td>{{record.name}}</td>
+    <td>{{record.age}}</td>
+    <td>{{record.sex}}</td>
+    </tr>
+    <tr *ngIf="showRowOne" (click)="toggleRowTwo($event)">
+    <td>{{record.val1}}</td>
+    <td>{{record.val2}}</td>
+    <td>{{record.val3}}</td>
+    </tr>
+    <tr *ngIf="showRowTwo" (click)="toggleRowTwo($event)">
+    <td>{{record.val4}}</td>
+    <td>{{record.val5}}</td>
+    <td>{{record.val6}}</td>
+    </tr>
+  </div>
+</table>
+<table>
+  <tr>
+    <th>Random Data</th>
+  </tr>
+  <div *ngFor="let record of selectedRowTable" >
+    <tr>
+    <td>{{record}}</td>
+    </tr>
+  </div>
+</table>
+<style>
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even) {
+    background-color: #dddddd;
+}
+</style>
